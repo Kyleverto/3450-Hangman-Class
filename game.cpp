@@ -1,5 +1,9 @@
 #include "console.hpp"
 #include "game.hpp"
+#include "state.hpp"
+#include <string>
+
+using std::string;
 
 namespace hangman {
     void PlayGame() {
