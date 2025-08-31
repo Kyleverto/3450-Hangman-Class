@@ -11,9 +11,11 @@ namespace hangman {
     };
     class Game {
         public:
+        Game();
         bool winner;
+        void SetWinner(bool state);
         void InitGame(string difficulty, string secretWord);
-        void MakeGuess(char Guess);
+        void MakeGuess(char guess);
         bool IsLetterInWord(char guess);
         int GetMistakes();
         int GetMistakesToLose();
@@ -27,11 +29,12 @@ namespace hangman {
         Difficulty currentDifficulty;
         string guesses;
         int mistakes;
-        int mistakesLeft;
+        int mistakesToLose;
         string clue;
         string wrongGuesses;
         Difficulty toEnum(string difficulty);
         void AddGuess(char guess);
+        void AddWrongGuess(char guess);
         void SetDifficulty(string difficulty);
         void SetSecretWord(string word);
         bool HasLetterBeenGuessed(char currentGuess);

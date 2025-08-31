@@ -2,17 +2,18 @@
 #include "game.hpp"
 #include "state.hpp"
 #include <string>
-
 using std::string;
 
 namespace hangman {
     void PlayGame() {
         Game game;
-        bool isGameOver;
+        bool isGameOver = false;
 
         io::PrintGameStart();
         string difficulty = io::GetDifficulty();
+
         string secretWord = io::GetSecretWord();
+
         game.InitGame(difficulty, secretWord);
 
         int mistakes = game.GetMistakes();
@@ -31,7 +32,7 @@ namespace hangman {
             string wrongGuesses = game.GetWrongGuesses();
             
             if(game.IsGameDone() == true) {
-                isGameOver == true;
+                isGameOver = true;
             }
             else {
                 io::PrintGameStatus(mistakes, mistakesToLose, clue, wrongGuesses);

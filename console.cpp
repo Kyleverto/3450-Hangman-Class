@@ -14,7 +14,7 @@ namespace io {
 
     string ToUpperString(string word) {
         for(char& letter : word) {
-            toupper(letter);
+            letter = toupper(letter);
         }
         return word;
     }
@@ -29,14 +29,14 @@ namespace io {
     string GetSecretWord() {
         string word;
         cin >> word;
-        ToUpperString(word);
+        word = ToUpperString(word);
         return word;
     }
 
     char GetPlayerGuess() {
         char guess;
         cin >> guess;
-        toupper(guess);
+        guess = toupper(guess);
         return guess;
     }
 
@@ -44,7 +44,7 @@ namespace io {
         cout << "Hangman" << endl << "_______" << endl << endl;
     }
 
-    void PrintGameStatus(int mistakes, int mistakesToLose, string clue, string wrongGuesses = "") {
+    void PrintGameStatus(int mistakes, int mistakesToLose, string clue, string wrongGuesses) {
         cout << "Mistakes: " << mistakes << "/" << mistakesToLose << endl << "Clue:     " << clue << endl;
         if (!wrongGuesses.empty()) {
             cout << "Wrong:    " << wrongGuesses << endl << endl;

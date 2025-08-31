@@ -8,7 +8,7 @@
       "name": "Run Hangman",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/out/build/Clang 16.0.0 arm64-apple-darwin23.6.0/Hangman",
+      "program": "${workspaceFolder}/out/build//Hangman",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

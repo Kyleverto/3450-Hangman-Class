@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/Hangman.dir/main.cpp.o CMakeFiles/Hangman.dir/game.cpp.o CMakeFiles/Hangman.dir/console.cpp.o CMakeFiles/Hangman.dir/state.cpp.o -o Hangman
