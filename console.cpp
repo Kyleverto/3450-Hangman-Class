@@ -52,14 +52,15 @@ namespace io {
     }
     
     void PrintGuess(char guess) {
-        cout << "Guess: " << toupper(guess) << endl << endl;
+        guess = toupper(guess);
+        cout << endl << "Guess: " << guess << endl << endl;
     }
 
     void PrintWin(string word) {
-        cout << "You won!" << endl << "The word was: " << word;
+        cout << "You won!" << endl << "The word was: " << word << endl;
     }
 
     void PrintLoss(string word) {
-      cout << "You lost." << endl << "The word was: " << word;
+      cout << "You lost." << endl << "The word was: " << word << endl;
     }
 }
