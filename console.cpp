@@ -11,18 +11,19 @@ using std::endl;
 using std::toupper;
 
 namespace io {
-    
+
     string ToUpperString(string word) {
-        for(char& c : word) {
-            toupper(c);
+        for(char& letter : word) {
+            toupper(letter);
         }
         return word;
     }
+
     string GetDifficulty() {
         string difficulty;
         cin >> difficulty;
-        ToUpperString(difficulty);
-        return difficulty;
+        string upper = ToUpperString(difficulty);
+        return upper;
     }
 
     string GetSecretWord() {
