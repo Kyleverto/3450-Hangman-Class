@@ -44,7 +44,7 @@ namespace io {
         cout << "Hangman" << endl << "_______" << endl << endl;
     }
 
-    void PrintMistakesClueWrong(int mistakes, int mistakesToLose, string clue, string wrongGuesses) {
+    void PrintGameStatus(int mistakes, int mistakesToLose, string clue, string wrongGuesses = "") {
         cout << "Mistakes: " << mistakes << "/" << mistakesToLose << endl << "Clue:     " << clue << endl;
         if (!wrongGuesses.empty()) {
             cout << "Wrong:    " << wrongGuesses << endl << endl;

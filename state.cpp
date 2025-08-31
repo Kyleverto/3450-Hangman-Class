@@ -14,6 +14,8 @@ namespace hangman {
     class Game {
         public:
 
+        bool winner = false;
+
         void InitGame(string difficulty, string secretWord) {
             SetDifficulty(difficulty);
             SetSecretWord(secretWord);
@@ -42,18 +44,32 @@ namespace hangman {
             }
         }
 
+        int GetMistakes() {
+            return mistakes;
+        }
 
-        bool HasLetterBeenGuessed(char currentGuess) {
-            for(char& guessed : guesses) {
-                if(currentGuess == guessed) {
-                    return true;
-                }
-            }
-            return false;
+        int GetMistakesToLose() {
+            return mistakesToLose;
+        }
+
+        string GetClue() {
+            return clue;
         }
 
         string GetWrongGuesses() {
             return wrongGuesses;
+        }
+
+        bool IsGameDone() {
+            if(mistakes >= mistakesToLose) {
+                winner = false;
+                return true;
+            }
+            if(clue == secretWord) {
+                winner = true;
+                return true;
+            }
+            return false;
         }
 
 
@@ -105,6 +121,15 @@ namespace hangman {
         bool IsLetterInWord(char guess) {
             for(char& letter : secretWord) {
                 if(guess == letter) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        bool HasLetterBeenGuessed(char currentGuess) {
+            for(char& guessed : guesses) {
+                if(currentGuess == guessed) {
                     return true;
                 }
             }
