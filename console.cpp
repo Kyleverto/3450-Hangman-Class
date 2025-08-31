@@ -44,10 +44,10 @@ namespace io {
         cout << "Hangman" << endl << "_______" << endl << endl;
     }
 
-    void PrintMistakesClueWrong(int mistakes, int mistakesLeft, string clue, string wrongLetters) {
-        cout << "Mistakes: " << mistakes << "/" << mistakesLeft << endl << "Clue:     " << clue << endl;
-        if (!wrongLetters.empty()) {
-            cout << "Wrong:     " << wrongLetters << endl << endl;
+    void PrintMistakesClueWrong(int mistakes, int mistakesToLose, string clue, string wrongGuesses) {
+        cout << "Mistakes: " << mistakes << "/" << mistakesToLose << endl << "Clue:     " << clue << endl;
+        if (!wrongGuesses.empty()) {
+            cout << "Wrong:    " << wrongGuesses << endl << endl;
         }
     }
     

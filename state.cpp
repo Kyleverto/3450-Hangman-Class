@@ -1,5 +1,6 @@
 #include "state.hpp"
 #include <string>
+#include <algorithm>
 using std::string;
 
 namespace hangman {
@@ -11,55 +12,105 @@ namespace hangman {
         return word;
     }
     class Game {
-        
-        bool IsLetterInWord(char guess, string secretWord) {
-                for(char& letter : secretWord) {
-                    if(guess == letter) {
-                        return true;
+        public:
+
+        void InitGame(string difficulty, string secretWord) {
+            SetDifficulty(difficulty);
+            SetSecretWord(secretWord);
+        }
+
+        void MakeGuess(char guess) {
+            if(HasLetterBeenGuessed(guess) == true) {
+                if(currentDifficulty != Difficulty::easy) {
+                    mistakes++;
+                }
+                return;
+            }
+            else {
+                AddGuess(guess);
+                if(IsLetterInWord(guess) == true) {
+                    for (int i = 0; i < secretWord.length(); ++i) {
+                        if (secretWord[i] == guess) {
+                            clue[i] = guess;
+                        }
                     }
                 }
-                return false;
+                else {
+                    AddWrongGuess(guess);
+                    mistakes++;
+                }
             }
-        bool HasLetterBeenGuessed(char currentGuess, string alreadyGuessed) {
-            for(char& guessed : alreadyGuessed) {
+        }
+
+
+        bool HasLetterBeenGuessed(char currentGuess) {
+            for(char& guessed : guesses) {
                 if(currentGuess == guessed) {
                     return true;
                 }
             }
             return false;
         }
-        string GetGuesses() {
-            return guesses;
+
+        string GetWrongGuesses() {
+            return wrongGuesses;
+        }
+
+
+        private:
+        string secretWord;
+        Difficulty currentDifficulty;
+        string guesses;
+        int mistakes;
+        int mistakesToLose;
+        string clue;
+        string wrongGuesses;
+
+        Difficulty toEnum(string difficulty) {
+            string upper = ToUpperString(difficulty);
+            if (upper == "EASY") 
+                return Difficulty::easy;
+
+            if (upper == "REGULAR") 
+                return Difficulty::regular;
+
+            if (upper == "HARD") 
+                return Difficulty::hard;
         }
 
         void AddGuess(char guess) {
             guesses.push_back(guess);
         }
-        
-        void SetDifficulty(string difficulty) {
-            currentDifficulty = toEnum(difficulty);
+
+        void AddWrongGuess(char guess) {
+            wrongGuesses.push_back(guess);
+            std::sort(wrongGuesses.begin(), wrongGuesses.end());
         }
 
-        private:
-            string guesses;
-            Difficulty currentDifficulty;
-            int mistakes;
-            int mistakesLeft;
-            string clue;
-            string wrongLetters;
-
-            Difficulty toEnum(string difficulty) {
-                string upper = ToUpperString(difficulty);
-                if (upper == "EASY") 
-                    return Difficulty::easy;
-
-                if (upper == "MEDIUM") 
-                    return Difficulty::medium;
-
-                if (upper == "HARD") 
-                    return Difficulty::hard;
+        void SetDifficulty(string difficulty) {
+            currentDifficulty = toEnum(difficulty);
+            if (currentDifficulty == Difficulty::easy || currentDifficulty == Difficulty::regular) {
+                mistakesToLose = 9;
             }
+            else {
+                mistakesToLose = 6;
+            }
+        }
 
+        void SetSecretWord(string word) {
+            secretWord = word;
+            clue.resize(word.length(), '_');
+        }
+
+        bool IsLetterInWord(char guess) {
+            for(char& letter : secretWord) {
+                if(guess == letter) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
     };
 
 }
