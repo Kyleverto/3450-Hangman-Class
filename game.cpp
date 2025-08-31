@@ -9,12 +9,11 @@ namespace hangman {
         Game game;
         bool isGameOver = false;
 
-        io::PrintGameStart();
         string difficulty = io::GetDifficulty();
-
         string secretWord = io::GetSecretWord();
-
         game.InitGame(difficulty, secretWord);
+        
+        io::PrintGameStart();
 
         int mistakes = game.GetMistakes();
         int mistakesToLose = game.GetMistakesToLose();
