@@ -1,19 +1,9 @@
 #include <iostream>
-#include "console.hpp"
-
-void PlayGame() {
-    io::PrintGameStart();
-    string difficulty = io::GetDifficulty();
-    string secretWord = io::GetSecretWord();
-
-
-    
-
-}
+#include "game.hpp"
 
 int main(){
     try {
-        PlayGame();
+        hangman::PlayGame();
     }
     catch (std::exception& error) {
         std::cerr << "ERROR: " << error.what() << std::endl;
