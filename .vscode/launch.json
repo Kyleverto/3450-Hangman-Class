@@ -5,10 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Run Hangman",
+      "name": "Debug Hangman",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/out/build//Hangman",
+      "program": "${workspaceFolder}/out/build/Hangman/Hangman",
       "args": [],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

@@ -1,7 +1,8 @@
 {
 	"InstallScripts" : 
 	[
-		"/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/cmake_install.cmake"
+		"/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/cmake_install.cmake",
+		"/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/Hangman/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
