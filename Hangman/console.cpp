@@ -41,13 +41,13 @@ namespace io {
     }
 
     void PrintGameStart() {
-        cout << "Hangman" << endl << "_______" << endl << endl;
+        cout << "Hangman" << endl << "-------" << endl << endl;
     }
 
     void PrintGameStatus(int mistakes, int mistakesToLose, string clue, string wrongGuesses) {
         cout << "Mistakes: " << mistakes << "/" << mistakesToLose << endl << "Clue:     " << clue << endl;
         if (!wrongGuesses.empty()) {
-            cout << "Wrong:    " << wrongGuesses << endl << endl;
+            cout << "Wrong:    " << wrongGuesses << endl;
         }
     }
     
