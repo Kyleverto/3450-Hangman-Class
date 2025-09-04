@@ -1,5 +1,0 @@
-/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/CMakeFiles/edit_cache.dir
-/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/CMakeFiles/rebuild_cache.dir
-/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/Hangman/CMakeFiles/Hangman.dir
-/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/Hangman/CMakeFiles/edit_cache.dir
-/Users/kyleverto/Desktop/OOP/3450-Hangman-Class/out/build/Hangman/CMakeFiles/rebuild_cache.dir
