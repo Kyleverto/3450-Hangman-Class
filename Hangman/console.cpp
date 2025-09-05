@@ -1,4 +1,5 @@
 #include "console.hpp"
+#include "difficulty.hpp"
 #include <iostream>
 #include <string>
 #include <vector>
@@ -19,12 +20,23 @@ namespace io {
         return word;
     }
 
-    string GetDifficulty() {
-        string difficulty;
-        cin >> difficulty;
-        string upper = ToUpperString(difficulty);
-        return upper;
+    Difficulty toEnum(string difficulty) {
+        if (difficulty == "EASY") 
+            return Difficulty::easy;
+        if (difficulty == "REGULAR") 
+            return Difficulty::regular;
+        if (difficulty == "HARD") 
+            return Difficulty::hard;
     }
+
+    Difficulty GetDifficulty() {
+        string difficultyString;
+        cin >> difficultyString;
+        string upper = ToUpperString(difficultyString);
+        Difficulty difficulty = toEnum(difficultyString);
+        return difficulty;
+    }
+    
 
     string GetSecretWord() {
         string word;

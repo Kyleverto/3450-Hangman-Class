@@ -1,6 +1,7 @@
 #include "console.hpp"
 #include "game.hpp"
 #include "state.hpp"
+#include "difficulty.hpp"
 #include <string>
 using std::string;
 
@@ -9,7 +10,7 @@ namespace hangman {
         Game game;
         bool isGameOver = false;
 
-        string difficulty = io::GetDifficulty();
+        Difficulty difficulty = io::GetDifficulty();
         string secretWord = io::GetSecretWord();
         game.InitGame(difficulty, secretWord);
         

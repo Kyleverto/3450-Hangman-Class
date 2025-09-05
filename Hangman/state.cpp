@@ -1,4 +1,5 @@
 #include "state.hpp"
+#include "difficulty.hpp"
 #include <string>
 #include <algorithm>
 using std::string;
@@ -13,7 +14,7 @@ namespace hangman {
         winner = state;
     }
 
-    void Game::InitGame(string difficulty, string secretWord) {
+    void Game::InitGame(Difficulty difficulty, string secretWord) {
         SetDifficulty(difficulty);
         SetSecretWord(secretWord);
     }
@@ -69,15 +70,6 @@ namespace hangman {
         return false;
     }
 
-    Difficulty Game::toEnum(string difficulty) {
-        if (difficulty == "EASY") 
-            return Difficulty::easy;
-        if (difficulty == "REGULAR") 
-            return Difficulty::regular;
-        if (difficulty == "HARD") 
-            return Difficulty::hard;
-    }
-
     void Game::AddGuess(char guess) {
         guesses.push_back(guess);
     }
@@ -87,8 +79,7 @@ namespace hangman {
         std::sort(wrongGuesses.begin(), wrongGuesses.end());
     }
 
-    void Game::SetDifficulty(string difficulty) {
-        currentDifficulty = toEnum(difficulty);
+    void Game::SetDifficulty(Difficulty currentDifficulty) {
         if (currentDifficulty == Difficulty::easy || currentDifficulty == Difficulty::regular) {
             mistakesToLose = 9;
         }

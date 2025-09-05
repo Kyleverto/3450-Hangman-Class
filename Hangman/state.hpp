@@ -1,42 +1,35 @@
 #pragma once
 #include <string>
-using std::string;
+#include "difficulty.hpp"
 
 namespace hangman {
-    string ToUpperString(string difficulty);
-     enum class Difficulty {
-        easy,
-        regular,
-        hard
-    };
     class Game {
         public:
         Game();
         bool winner;
         void SetWinner(bool state);
-        void InitGame(string difficulty, string secretWord);
+        void InitGame(Difficulty difficulty, std::string secretWord);
         void MakeGuess(char guess);
         bool IsLetterInWord(char guess);
         int GetMistakes();
         int GetMistakesToLose();
-        string GetClue();
-        string GetWrongGuesses();
+        std::string GetClue();
+        std::string GetWrongGuesses();
         bool IsGameDone();
 
 
     private:
-        string secretWord;
+        std::string secretWord;
         Difficulty currentDifficulty;
-        string guesses;
+        std::string guesses;
         int mistakes;
         int mistakesToLose;
-        string clue;
-        string wrongGuesses;
-        Difficulty toEnum(string difficulty);
+        std::string clue;
+        std::string wrongGuesses;
         void AddGuess(char guess);
         void AddWrongGuess(char guess);
-        void SetDifficulty(string difficulty);
-        void SetSecretWord(string word);
+        void SetDifficulty(Difficulty difficulty);
+        void SetSecretWord(std::string word);
         bool HasLetterBeenGuessed(char currentGuess);
     };
 }
